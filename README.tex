@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+\setlength{\headheight}{20pt}
+
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\usepackage[clear]{tlp}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhf[R]{\tlp}
+\fancyhf[LH]{TLP Readme}
+\fancyhf[CF]{\thepage}
+
+\begin{document}
+\verb|SPDX-License-Identifier: Apache-2.0 OR MIT|
+
+\section{Introduction}
+The goal for this \LaTeX package is to provide an easy way to use the Traffic
+Light Protocol (TLP)\cite{TrafficL20:online} in your documents.
+
+\section{Usage}
+To use the package, simply add it with \verb|\usepackage[label]{tlp}| to set
+the TLP level (explained in next section), then simply add the \verb|\tlp|
+command wherever the TLP level should be shown like this: \tlp.
+
+To comply with FIRST, you MUST use the \verb|\tlp| command in your header and
+footer. It SHOULD be set in at least \textbf{12pt} font size. It is recommended to
+right-justify TLP labels.
+
+This document uses MUST and SHOULD as defined by RFC-2119\cite{rfc2119}.
+
+\section{Labels}
+The following labels are defined and therefore can be used with this package.
+For easier use, both all-uppecase as well as all-lowercase has been implemented,
+however the output will always be all-uppercase as defined by FIRST
+\cite{TrafficL20:online}.
+
+\begin{center}
+    \begin{tabular}{|c|c|} 
+        \hline
+        \textbf{Import} & \textbf{Output} \\
+        \hline
+        \hline
+        \verb|\usepackage[red]{tlp}| & \colorbox{tlp-c-black}{\textcolor{tlp-c-red}{TLP:RED}} \\
+        \hline
+        \verb|\usepackage[amber+strict]{tlp}| & \colorbox{tlp-c-black}{\textcolor{tlp-c-amber}{TLP:AMBER+STRICT}} \\
+        \hline
+        \verb|\usepackage[amber]{tlp}| & \colorbox{tlp-c-black}{\textcolor{tlp-c-amber}{TLP:AMBER}} \\
+        \hline
+        \verb|\usepackage[green]{tlp}| & \colorbox{tlp-c-black}{\textcolor{tlp-c-green}{TLP:GREEN}} \\
+        \hline
+        \verb|\usepackage[clear]{tlp}| & \colorbox{tlp-c-black}{\textcolor{tlp-c-clear}{TLP:CLEAR}} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+\end{document}

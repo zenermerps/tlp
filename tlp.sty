@@ -1,0 +1,24 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tlp}[2023/11/27 Traffic Light Protocol (TLP) support for LaTeX documents]
+
+\RequirePackage{xcolor}
+\definecolor{tlp-c-black}{HTML}{000000}
+\definecolor{tlp-c-red}{HTML}{FF2B2B}
+\definecolor{tlp-c-amber}{HTML}{FFC000}
+\definecolor{tlp-c-green}{HTML}{33FF00}
+\definecolor{tlp-c-clear}{HTML}{FFFFFF}
+
+\newcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-red}{TLP:RED}}}
+
+\DeclareOption{red}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-red}{TLP:RED}}}}
+\DeclareOption{RED}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-red}{TLP:RED}}}}
+\DeclareOption{amber+strict}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-amber}{TLP:AMBER+STRICT}}}}
+\DeclareOption{AMBER+STRICT}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-amber}{TLP:AMBER+STRICT}}}}
+\DeclareOption{amber}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-amber}{TLP:AMBER}}}}
+\DeclareOption{AMBER}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-amber}{TLP:AMBER}}}}
+\DeclareOption{green}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-green}{TLP:GREEN}}}}
+\DeclareOption{GREEN}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-green}{TLP:GREEN}}}}
+\DeclareOption{clear}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-clear}{TLP:CLEAR}}}}
+\DeclareOption{CLEAR}{\renewcommand{\tlp}{\colorbox{tlp-c-black}{\textcolor{tlp-c-clear}{TLP:CLEAR}}}}
+\DeclareOption*{\PackageWarning{tlp}{Unknown TLP level ‘\CurrentOption’}}
+\ProcessOptions\relax
